@@ -1,12 +1,15 @@
-import {StatusBar, View, Text, Image} from 'react-native';
+import React from 'react';
+import {StatusBar, View, StyleSheet} from 'react-native';
 import { Autorizaton } from './components/Authorization';
+import { Map } from './components/Map';
+  
 
 export default function App() {
 	return (
 		<View>
-			<Autorizaton/>
+			<Map />
+			{/* <Autorizaton/> */}
 			<StatusBar theme="auto"/>
 		</View>
 	);
 }
-
