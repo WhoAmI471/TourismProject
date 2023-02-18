@@ -54,9 +54,9 @@ const Scroll = styled.ScrollView`
 export default function App() {
 	return (
 		<View>
-			{/* <QuikInfo /> */}
+			<QuikInfo />
 			{/* <Map /> */}
-			<Autorizaton/>
+			{/* <Autorizaton/> */}
 			{/* <ExampleModal/> */}
 			{/* <StatusBar theme="auto"/> */}
 		</View>
