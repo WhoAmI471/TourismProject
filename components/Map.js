@@ -1,7 +1,8 @@
 import React from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, View, Text } from 'react-native';
 import styled from 'styled-components/native';
+import Svg, { Circle, Rect } from 'react-native-svg';
+import { StyleSheet, View, Text } from 'react-native';
 
 const Content = styled.View`
 	margin-top: 50px;
@@ -14,14 +15,17 @@ const Navigate = styled.View`
 	width: 100%;
 	height: 20%;
 
+	justify-content: space-around;
 	background-color: #63C0B9;
 	border-radius: 35px;
 `;
 
-const NavImage = styled.Image`
+const NavImage = styled.View`
 	flex-direction: row;
-	width: 36px;
-	height: 36px;
+	width: 46px;
+	height: 46px;
+	/* color: red; */
+	background-color: white;
 `;
 
 export const Map = () => {
@@ -33,11 +37,11 @@ export const Map = () => {
       			<MapView style={styles.map} />
 			</Content>
 			<Navigate>
-				<NavImage source={{url: 'https://i.ibb.co/8g0zcSZ/image-3.png'}}/>
-				<NavImage source={{url: 'https://ibb.co/DftGpS2'}}/>
-				<NavImage source={{url: 'https://ibb.co/DftGpS2'}}/>
-				<NavImage source={{url: 'https://ibb.co/DftGpS2'}}/>
-				<NavImage source={{url: 'https://ibb.co/DftGpS2'}}/>
+				<NavImage source={require('../assets/news.svg')}/>
+				<NavImage source={require('../assets/learn.svg')}/>
+				<NavImage source={require('../assets/map.svg')}/>
+				<NavImage source={require('../assets/calendar.svg')}/>
+				<NavImage source={require('../assets/user.svg')}/>
 			</Navigate>
 		</View>
   	);
