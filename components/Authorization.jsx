@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
-import { StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { StyleSheet, View } from 'react-native';
+// import LinearGradient from 'react-native-linear-gradient';
 import * as React from 'react';
 
 const AutorizatonView = styled.View`
@@ -122,8 +122,34 @@ const BackGroundView = styled.ImageBackground`
 `;
 
 export const Autorizaton = () => {
+    
+    // const [modalVisible, setModalVisible] = useState(false);
     return (
     <AutorizatonView> 
+    {/* <Modal
+      animationType="slide"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={() => {
+        Alert.alert('Modal has been closed.');
+        setModalVisible(!modalVisible);
+      }}>
+      <View style={styles.centeredView}>
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}>Hello World!</Text>
+          <Pressable
+            style={[styles.button, styles.buttonClose]}
+            onPress={() => setModalVisible(!modalVisible)}>
+            <Text style={styles.textStyle}>Hide Modal</Text>
+          </Pressable>
+        </View>
+      </View>
+    </Modal>
+    <Pressable
+      style={[styles.button, styles.buttonOpen]}
+      onPress={() => setModalVisible(true)}>
+      <Text style={styles.textStyle}>Show Modal</Text>
+    </Pressable> */}
         <BackGroundView source={require('../assets/back.png')}>
         <AutorizationDetails>
             <Title>Авторизация</Title>
@@ -143,6 +169,7 @@ export const Autorizaton = () => {
                     <ButtonText>Войти</ButtonText>
                 </ViewButton>
             {/* </LinearGradient> */}
+
             <ViewButtonGos>
                 <ButtonText style={styles.gos}>Войти через </ButtonText>
                 <ButtonText style={styles.gosBlue}>гос</ButtonText>
@@ -155,7 +182,6 @@ export const Autorizaton = () => {
 
             <Registration>Регистрация для путешественников</Registration>
         </AutorizationDetails>
-        
         </BackGroundView>
     </AutorizatonView>
 );

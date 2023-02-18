@@ -1,8 +1,10 @@
 import React from 'react';
-import {StatusBar, View, Image, ScrollView, StyleSheet} from 'react-native';
+import { Alert, Modal, StyleSheet, Text, Pressable, StatusBar, Button, View, Image, ScrollView} from 'react-native';
 import { Autorizaton } from './components/Authorization';
 import { Map } from './components/Map';
-import {Post} from './components/NewsPost'
+import { Post } from './components/NewsPost';
+import { QuikInfo } from './components/UserScrin';
+import { useState, useImperativeHandle } from 'react';
 import styled from 'styled-components/native';
 
 const HeaderMenu = styled.View`
@@ -42,7 +44,7 @@ const NavImage = styled.View`
 	width: 46px;
 	height: 46px;
 	/* color: red; */
-	background-color: white;
+	/* background-color: white; */
 `;
 
 const Scroll = styled.ScrollView`
@@ -50,12 +52,13 @@ const Scroll = styled.ScrollView`
 `;
 
 export default function App() {
-	
 	return (
 		<View>
+			{/* <QuikInfo /> */}
 			{/* <Map /> */}
 			<Autorizaton/>
-			<StatusBar theme="auto"/>
+			{/* <ExampleModal/> */}
+			{/* <StatusBar theme="auto"/> */}
 		</View>
 	);
 }
@@ -91,6 +94,11 @@ export default function App() {
 // 				<Post 
 // 					// url={'../assets/News/image6.png'}
 // 					content={"Студенты технических специальностей из 4 регионов России пройдут программу практической подготовки на одном из ведущих предприятий российской космической отрасли"}
+// 				/>
+				
+// 				<Post 
+// 					// url={'../assets/News/image6.png'}
+// 					content={"Хакатон кринж"}
 // 				/>
 // 			{/* <Map /> */}
 // 			{/* <Autorizaton/> */}
