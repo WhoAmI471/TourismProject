@@ -9,12 +9,9 @@ import { StyleSheet, View, TextInput, Text, ScrollView, TouchableOpacity, Modal 
 // } from 'react-native-svg';
 import Culture from './pages/Culture';
 import Scienst from './pages/Scienst';
-import Forum from './pages/Prof/Forum';
 //
 import Request from './pages/Request';
-
-import Booking1 from './pages/Request/Booking/Booking1';
-
+//
 import Event1 from "./pages/Culture/events/event1";
 
 import AutorithationFileName from './pages/Autorithation/Autorithation';
@@ -117,10 +114,9 @@ const handleReset = () => {
   };
 
 const handleLogin = () => {
-    if(username?.length > 0 && password?.length > 0) {
-    setModalTitle(''); 
+    // Здесь можно добавить логику для проверки логина и пароля
+    setModalTitle(''); // Скрываем модальное окно после успешной 
     setModalVisible(false);
-}
   };
 
 // проверяет есть ли логин и пароль, если нет, показывает окно авторизации
@@ -131,13 +127,13 @@ useEffect(() => {
     setModalTitle('Авторизация');
   }
 }
-}, [username, password,]);
+}, []);
   
 
     return (
     <View>
         <Info>
-            <Text style={styles.header}>Добрый день, {username|| 'уважаемый Пользователь'}!</Text>
+            <Text style={styles.header}>Добрый день, Семён!</Text>
             <Text style={styles.headerDown}>18 февраля 16:31</Text>
             <Events>
                 <Text style={styles.header}>Ближайщие события рядом</Text>
@@ -185,19 +181,14 @@ useEffect(() => {
             <Content>
               {modalTitle==='Культура' && <Culture modalTitle={modalTitle} setModalTitle={setModalTitle}/> }
               {modalTitle==='Профориентация' && <Scienst modalTitle={modalTitle} setModalTitle={setModalTitle}/> }
-              {/* {modalTitle==='Наука' &&  <Text style={styles.filters}></Text> }
-              {modalTitle==='Избранное' &&  <Text style={styles.filters}></Text> } */}
+              {/* {modalTitle==='Наука' &&  <Text style={styles.filters}>Культура и разная фигня.
+             тут можете писать что угодно, вставлять картинки и т.д</Text> }
+              {modalTitle==='Избранное' &&  <Text style={styles.filters}>Культура и разная фигня.
+             тут можете писать что угодно, вставлять картинки и т.д</Text> } */}
           {/*  EVENTS */}
               {modalTitle === 'Презентация научных достижений Самарского университета' && <Event1 modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
               {/* REQUEST */}
                {modalTitle === 'Оставить заявку' && <Request modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
-               {modalTitle === 'Общежитие № 2 Самарского университета' && <Booking1 modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
-
-               {/* profs */}
-               
-               {modalTitle === 'Общежитие № 2 Самарского университета' && <Booking1 modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
-
-               {modalTitle === 'Форум сообществ молодых специалистов' && <Forum modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
                {modalTitle==='Авторизация' && <AutorithationFileName username={username} password={password} setUsername={setUsername} setPassword={setPassword} handleLogin={handleLogin}/>}            
                </Content>
           </View>

@@ -37,11 +37,11 @@ export const Map = () => {
       			<MapView style={styles.map} />
 			</Content>
 			<Navigate>
-				{/* <NavImage source={require('../assets/news.svg')}/>
+				<NavImage source={require('../assets/news.svg')}/>
 				<NavImage source={require('../assets/learn.svg')}/>
 				<NavImage source={require('../assets/map.svg')}/>
 				<NavImage source={require('../assets/calendar.svg')}/>
-				<NavImage source={require('../assets/user.svg')}/> */}
+				<NavImage source={require('../assets/user.svg')}/>
 			</Navigate>
 		</View>
   	);

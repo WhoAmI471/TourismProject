@@ -1,23 +1,16 @@
 import styled from 'styled-components/native';
 
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, TextInput, Text, ScrollView, TouchableOpacity, Modal } from 'react-native';
-// import { Button } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Modal } from 'react-native';
+import { Button } from 'react-native';
 // import Svg, {
 //   Use,
 //   Image
 // } from 'react-native-svg';
 import Culture from './pages/Culture';
 import Scienst from './pages/Scienst';
-import Forum from './pages/Prof/Forum';
-//
-import Request from './pages/Request';
 
-import Booking1 from './pages/Request/Booking/Booking1';
-
-import Event1 from "./pages/Culture/events/event1";
-
-import AutorithationFileName from './pages/Autorithation/Autorithation';
+import Event1 from "./pages/Culture/events/event1"
 
 const Info = styled.View`
     padding-top: 48px;
@@ -83,19 +76,12 @@ const Card = styled.View`
   width: 131px;
   height: 126px;
 
-  margin-top: 15px;
   align-items: center;
   background: #DFF1FF;
   border-radius: 10px;
 `;
 
-import { SvgXml } from 'react-native-svg';
-
-
 export const QuikInfo = () => {
-  const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -5 24 24" width="34" height="34">
-    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="#000000" />
-  </svg>`;
 
   const [modalVisible, setModalVisible] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
@@ -105,39 +91,10 @@ export const QuikInfo = () => {
     setModalVisible(true);
   };
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-//log out выход, сбрасывает логин и пароль
-
-const handleReset = () => {
-    setUsername('');
-    setPassword('');
-   setModalTitle('Авторизация'); // После сброса показываем модальное окно
-  };
-
-const handleLogin = () => {
-    if(username?.length > 0 && password?.length > 0) {
-    setModalTitle(''); 
-    setModalVisible(false);
-}
-  };
-
-// проверяет есть ли логин и пароль, если нет, показывает окно авторизации
-
-useEffect(() => {
-  if (username==='' ||password==='') { if(modalTitle !=='Авторизация' ) {
-    setModalVisible(true);
-    setModalTitle('Авторизация');
-  }
-}
-}, [username, password,]);
-  
-
     return (
     <View>
         <Info>
-            <Text style={styles.header}>Добрый день, {username|| 'уважаемый Пользователь'}!</Text>
+            <Text style={styles.header}>Добрый день, Семён!</Text>
             <Text style={styles.headerDown}>18 февраля 16:31</Text>
             <Events>
                 <Text style={styles.header}>Ближайщие события рядом</Text>
@@ -176,30 +133,22 @@ useEffect(() => {
 
           <View style={styles.modalContent}>
             <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
-              {/* <Text style={styles.closeButtonText}>---</Text> */}
-             <SvgXml xml={svgMarkup} />
-              </TouchableOpacity>
-              
-              {/* <Image style={styles.closeButtonText} href={require('../assets/arrow.png')}/>
-            </TouchableOpacity>*/}
+              <Text style={styles.closeButtonText}>---</Text>
+              {/* <Svg width="80" height="80" >
+                <Image href={require('../assets/arrow.svg')}/>
+              </Svg> */}
+              {/* <Image style={styles.closeButtonText} href={require('../assets/arrow.png')}/> */}
+            </TouchableOpacity>
             <Content>
               {modalTitle==='Культура' && <Culture modalTitle={modalTitle} setModalTitle={setModalTitle}/> }
-              {modalTitle==='Профориентация' && <Scienst modalTitle={modalTitle} setModalTitle={setModalTitle}/> }
-              {/* {modalTitle==='Наука' &&  <Text style={styles.filters}></Text> }
-              {modalTitle==='Избранное' &&  <Text style={styles.filters}></Text> } */}
+              {modalTitle==='Профориентация' && <Scienst modalTitle={modalTitle} setModalTitle/> }
+              {/* {modalTitle==='Наука' &&  <Text style={styles.filters}>Культура и разная фигня.
+             тут можете писать что угодно, вставлять картинки и т.д</Text> }
+              {modalTitle==='Избранное' &&  <Text style={styles.filters}>Культура и разная фигня.
+             тут можете писать что угодно, вставлять картинки и т.д</Text> } */}
           {/*  EVENTS */}
-              {modalTitle === 'Презентация научных достижений Самарского университета' && <Event1 modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
-              {/* REQUEST */}
-               {modalTitle === 'Оставить заявку' && <Request modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
-               {modalTitle === 'Общежитие № 2 Самарского университета' && <Booking1 modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
-
-               {/* profs */}
-               
-               {modalTitle === 'Общежитие № 2 Самарского университета' && <Booking1 modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
-
-               {modalTitle === 'Форум сообществ молодых специалистов' && <Forum modalTitle={modalTitle} setModalTitle={setModalTitle}/>}
-               {modalTitle==='Авторизация' && <AutorithationFileName username={username} password={password} setUsername={setUsername} setPassword={setPassword} handleLogin={handleLogin}/>}            
-               </Content>
+              {modalTitle === 'Презентация научных достижений Самарского университета' && <Event1 />}
+            </Content>
           </View>
         </Modal>
     </View>
@@ -210,14 +159,14 @@ useEffect(() => {
               <Card>
                 <Text>Конференц -перевод</Text>
               </Card>
-              <Card style={{ }}>
+              <Card>
                 <Text>Конференц -перевод</Text>
               </Card>
               <Card>
-                <Text></Text>
+                <Text>Конференц -перевод</Text>
               </Card>
               <Card>
-                <Text></Text>
+                <Text>Конференц -перевод</Text>
               </Card>
             </Cards>
             {/* <Cards>
@@ -284,53 +233,53 @@ const styles = StyleSheet.create({
         lineHeight: 19,
         color: '#EE3F58',
     },
-    container: {
+     container: {
       display: 'flex',
       // flexDirrecttion: 'row',
-      //flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    button: {
-      height: 35,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    buttonText: {
-      color: 'white',
-      fontSize: 20,
-    },
+    //flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    height: 35,
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 20,
+  },
     modalBackground: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'rgba(0, 0, 0, 1)',
-    },
-    modalContent: {
-      width: '100%',
-      height: '100%',
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'white',
-      borderRadius: 10,
-      overflow: 'hidden',
-    },
-    closeButton: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      padding: 10,
-      zIndex: 100
-    },
-    closeButtonText: {
-      color: '#3B52A3',
-      marginTop: 13,
-      zIndex: 2,
-    },
-    modalTitle: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      margin: 20,
-      textAlign: 'center',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 1)',
+  },
+  modalContent: {
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    padding: 10,
+  },
+  closeButtonText: {
+    color: '#3B52A3',
+    marginTop: 13,
+    zIndex: 2,
+  },
+  modalTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    margin: 20,
+    textAlign: 'center',
   },
 });
